@@ -87,24 +87,29 @@ main {
     height: 150px;
   }
 
+  h5 {
+    border-bottom: 1px $secondary-color solid;
+  }
   .bio {
     grid-area: bio;
     font-size: 1.5rem;
   }
   .job {
     background: lighten($primary-color, 5);
-    padding: 0.5 rem;
     border-bottom: $secondary-color 5px solid;
   }
   .job-1 {
+    padding: 1rem;
     grid-area: job1;
   }
 
   .job-2 {
+    padding: 1rem;
     grid-area: job2;
   }
 
   .job-3 {
+    padding: 1rem;
     grid-area: job3;
   }
 }
@@ -114,15 +119,63 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.7rem;
-
-  img {
-    width: 100%;
-    border: #fff 3px solid;
-    border-radius: 5%;
+  p {
+    text-align: center;
     &:hover {
-      opacity: 0.5;
-      border-color: $secondary-color;
       @include easeOut;
+      color: $secondary-color;
+    }
+  }
+  .item {
+    .image-text {
+      display: none;
+    }
+    &:hover {
+      .image-text {
+        display: block;
+        opacity: 1;
+        text-align: center;
+        background-color: $secondary-color;
+      }
+    }
+    img {
+      width: 100%;
+      border: #fff 3px solid;
+      border-radius: 5%;
+      alt: "View Project";
+      &:hover {
+        z-index: 0;
+        opacity: 0.3;
+        border-color: $secondary-color;
+        @include easeOut;
+      }
+    }
+  }
+}
+
+// Boxes
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 1.5rem;
+    border: 2px #fff solid;
+    padding: 0.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      border: 0;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
     }
   }
 }
